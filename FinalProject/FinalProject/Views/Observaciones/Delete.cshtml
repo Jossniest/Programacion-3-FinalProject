@@ -1,0 +1,70 @@
+﻿@model ProyectoFinal.Models.Observaciones
+
+@{
+    ViewBag.Title = "Delete";
+}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-dark text-white text-center">
+                    <h5>Seguro de querer borrar este Registro?</h5>
+
+                </div>
+                <div class="card-body">
+                    <div>
+
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Empleados.codigoEmpleado)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Empleados.codigoEmpleado)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Observacion)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Observacion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Fecha)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Fecha)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Comentarios)
+                            </dd>
+
+                            
+
+                        </dl>
+
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Borrar" class="btn btn-primary" /> |
+                                @Html.ActionLink("Atras", "Index")
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

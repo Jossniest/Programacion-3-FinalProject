@@ -1,0 +1,77 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Observaciones>
+
+@{
+    ViewBag.Title = "ObservacionesEmpleado";
+}
+
+
+<br>
+<div class="container ">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header bg-dark text-white text-center">
+                    <h5>Observaciones por Empleado</h5>
+                    <h6><a href="@Url.Action("Informes","Home")">Atras</a></h6>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm())
+                    {
+                        <label class="control-label">Filtrar por ID:</label>
+                        
+                        <div class="row">
+                            <div class="col-md-5">
+                                @Html.TextBox("SearchString", null, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-5 ">
+
+                                <input type="submit" value="Buscar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    }
+                    <br />
+                    <table class="table">
+                        <tr class="text-center">
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Observacion)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fecha)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </th>
+                            <td class="font-weight-bold">
+                                Amonestaciones
+                            </td>
+
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr class="text-center">
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Observacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fecha)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Comentarios)
+                            </td>
+                            <td>
+                                @Model.Count()
+                            </td>
+                        </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

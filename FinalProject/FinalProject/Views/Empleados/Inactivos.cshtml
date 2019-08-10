@@ -1,0 +1,88 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Empleados>
+
+@{
+    ViewBag.Title = "Inactivos";
+}
+
+<br />
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="text-center">Listado de Empleados Inactivos</h3>
+                    <h6 class="text-center">
+                        @Html.ActionLink("Atras", "Index")
+                    </h6>
+                </div>
+                <div class="card-body">
+             
+                    <br />
+                    <table class="table">
+                        <tr>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.codigoEmpleado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Apellido)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Telefono)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cargos.Cargo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Departamentos.Nombre)
+                            </th>
+                           
+                            <th>
+                                @Html.DisplayNameFor(model => model.Salario)
+                            </th>
+
+
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.codigoEmpleado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Apellido)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Cargos.Cargo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Departamentos.Nombre)
+                                </td>
+                                
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Salario)
+                                </td>
+
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

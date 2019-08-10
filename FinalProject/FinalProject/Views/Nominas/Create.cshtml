@@ -1,0 +1,59 @@
+﻿@model ProyectoFinal.Models.Nominas
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header bg-dark text-white text-center">
+                        <h5>Calculo de Nomina</h5>
+                        <h6>@Html.ActionLink("Ir a Registro de Nominas", "Index")</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-horizontal">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.mesAno, htmlAttributes: new { @class = "control-label " })
+
+                                        @Html.EditorFor(model => model.mesAno, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.mesAno, "", new { @class = "text-danger" })
+
+                                    </div>
+
+                                    
+
+                                    <div class="row">
+                                        <div class="col-md-12" align="center">
+                                            <div class="form-group">
+                                                <div class="col-md-offset-2 col-md-10">
+                                                    <input type="submit" value="Calcular Nomina" class="btn btn-primary btn-block" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+}
+
+
+

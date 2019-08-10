@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Departamentos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3>Lista de Departamentos</h3>
+                    <p>
+                      @Html.ActionLink("Nuevo Departamento", "Create")
+                    </p>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.codigoDepartamento)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                <p>Opciones</p>
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.codigoDepartamento)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary" })
+                            
+                                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+
+

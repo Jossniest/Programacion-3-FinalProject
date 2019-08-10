@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Nominas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3>Nominas</h3>
+                    <p>
+                        @Html.ActionLink("Calcular Nueva Nomina", "Create")
+                    </p>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tr class="text-center">
+                            <th>
+                                @Html.DisplayNameFor(model => model.mesAno.Year)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.mesAno.Month)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.montoTotal)
+                            </th>
+                            <th>
+                                <p>Opciones</p>
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr class="text-center">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.mesAno.Year)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.mesAno.Month)
+                                </td>
+                                <td>
+                                    $@Html.DisplayFor(modelItem => item.montoTotal)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Imprimir en excel", "ExportExcel", new { fecha = item.mesAno }, new { @class = "btn btn-danger" })
+                                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  
+

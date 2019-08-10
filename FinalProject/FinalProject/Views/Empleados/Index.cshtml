@@ -1,0 +1,106 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Empleados>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h3 class="text-center">Lista de Empleados</h3>
+                    <p class="text-center">
+                        @Html.ActionLink("Nuevo Empleado", "Create")
+                    </p>
+                    <div class="d-flex">
+                        <a class="p-2 btn btn btn-light" href="@Url.Action("Activos", "Empleados")">
+                            <b>Lista de empleados Activos</b>
+                        </a>
+                        <a class="ml-auto p-2 btn btn btn-light" href="@Url.Action("Inactivos", "Empleados")">
+                            <b>Lista de empleados Inactivos</b>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <table class="table">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.codigoEmpleado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Apellido)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Telefono)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Cargos.Cargo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Departamentos.Nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Salario)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Estatus)
+                            </th>
+                            <th>
+                                <p>Opciones</p>
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.codigoEmpleado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Apellido)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Telefono)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cargos.Cargo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Departamentos.Nombre)
+                            </td>
+                            <td>
+                                $@Html.DisplayFor(modelItem => item.Salario)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estatus)Activo
+                            </td>
+                            <td>
+                                @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                        }
+                        
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+

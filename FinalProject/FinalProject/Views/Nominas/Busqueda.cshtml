@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Nominas>
+
+@{
+    ViewBag.Title = "Busqueda";
+}
+
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3>Nominas</h3>
+                    <h6><a href="@Url.Action("Informes","Home")">Atras</a></h6>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm())
+                    {
+                        <label class="control-label">Filtrar por Año o Mes:</label>
+                        <div class="row">
+                            <div class="col-md-5">
+
+
+                                @Html.TextBox("Fecha", null, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-5 ">
+
+                                <input type="submit" value="Buscar" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    }
+                    <br />
+                    <table class="table">
+                        <tr class="text-center">
+                            <th>
+                                @Html.DisplayNameFor(model => model.mesAno)
+                            </th>
+                            
+                            <th>
+                                @Html.DisplayNameFor(model => model.montoTotal)
+                            </th>
+
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr class="text-center">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.mesAno)
+                                </td>
+                               
+                                <td>
+                                    $@Html.DisplayFor(modelItem => item.montoTotal)
+                                </td>
+
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

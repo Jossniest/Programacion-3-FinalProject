@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProyectoFinal.Models.Observaciones>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="card">
+                <div class="card-header bg-dark text-white text-center">
+                    <h5>Listado de Observaciones</h5>
+                    <h6>@Html.ActionLink("Nueva Observacion", "Create")</h6>
+                </div>
+                <div class="card-body">
+                    <table class="table text-center">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Empleados.codigoEmpleado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Observacion)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fecha)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Comentarios)
+                            </th>
+                            <th>
+                                <p>Opciones</p>
+                            </th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Empleados.codigoEmpleado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Observacion)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fecha)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Comentarios)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.ID }, new { @class = "btn btn-primary" })
+                                    @Html.ActionLink("Borrar", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
